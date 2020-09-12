@@ -1,0 +1,50 @@
+input {
+    width: 75%;
+
+}
+.form-fields {
+    display: flex;
+    margin: 15px;
+}
+.form-fields {
+    display: flex;
+    margin: 15px;
+}
+button:hover {
+    background-color:  #556B2F;
+    color:white;
+    width: 15%
+}
+#history-display {
+    display: flex;
+    margin-top: 70px;
+    /* margin-left: -10px; */
+}
+.history-area {
+    border: white 1px solid;
+    height: 300px;
+    width: 200px;
+}
+.history-text {
+    transform:rotate(-90deg); 
+    color: #827E7A;
+    
+}
+h2{
+    text-align: center;
+}
+/* 
+.cell-4 {
+    /* background-color:#F0DECF; */
+    /* height: 200px; */
+    /* border: 2px solid white; */
+/* } */
+
+body {
+    background-color: #FFE4C4;
+}   
+
+header {
+    background-color: #556B2F;
+    color: white;
+}
