@@ -1,11 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <!-- Metro StyleSheet -->
+    <link rel="stylesheet" href="https://cdn.metroui.org.ua/v4.3.2/css/metro-all.min.css">
+    <!-- Custom Style Sheets -->
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <title>Recipe Finder</title>
 </head>
-<body>
-    
+
+<body class="grid">
+    <header class="row">
+        <h1 class="cell-12">Recipe Finder</h1>
+    </header>
+    <main class="row">
+        <!-- first column -->
+        <section class="cell-4" id="search-col" style="background-color: orangered; height:100px">
+            <div id="search-nutrition">
+                <h2>Recipe Search</h2>
+                <div style="display: flex;">
+                    <input type="text" id="recipe-val" placeholder="Ingredient Info" style="width: 75%">
+                    <button><span class="mif-search mif-lg"></span></button>
+                </div>
+                <div style="display: flex">
+                    <input type="text" id="nutrition-val" placeholder="Nutrition Info" style="width: 75%">
+                    <button><span class="mif-search mif-lg"></span></button>
+                </div>
+            </div>
+        </section>
+        <!-- second Column -->
+        <section class="cell-4" id="nutrition-col" style="background-color: teal; height: 100px;">
+            <div>
+                <h2>Nutrition Info</h2>
+                2
+            </div>
+        </section>
+        <!-- Third Column -->
+        <section class="cell-4" id="recipe-col" style="background-color: orangered; height: 100px;">
+            <div>
+                <h2>Recipes</h2>
+                3
+            </div>
+        </section>
+    </main>
+    <!-- Metro Script Tags -->
+    <script src="https://cdn.metroui.org.ua/v4.3.2/js/metro.min.js"></script>
 </body>
+
 </html>
