@@ -9,10 +9,6 @@ h1 {
     display: flex;
     margin: 15px;
 }
-.form-fields {
-    display: flex;
-    margin: 15px;
-}
 button:hover {
     background-color:  #556B2F;
     color:white;
@@ -47,9 +43,7 @@ button:hover {
 .card {
     flex: 1;
 }
-
-
-h2{
+h2 {
     text-align: center;
 }
 /* 
