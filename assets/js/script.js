@@ -4,6 +4,10 @@ var recVal = document.getElementById("recipe-val");
 var nutVal = document.getElementById("nutrition-val");
 var recName = document.getElementsByClassName("rec-name");
 var recDisplay = document.getElementById("rec-display");
+var nutCol =  document.getElementById("nutrition-col");
+var nutTxtDisplay = document.getElementById("displayNut");
+
+
 //get Nutrition Function
 var getNutrition = function () {
 
@@ -17,16 +21,30 @@ var getNutrition = function () {
         response.json().then(function (data) {
             // this will show the API data to navigate
             console.log(data)
+            console.log(data.calories);
 
+            //display the search item
+            var NutQuery = nutVal.value;
+            nutTxtDisplay.textContent = NutQuery;
+
+            //Display the Calories of the search input
+            var calCount =  data.calories;
+            var cal = document.createElement("h4");
+            cal.textContent = calCount;
+
+            nutCol.appendChild(cal);
         })
     })
+    var localStorageNut =  function() {
+        localStorage.setItem(JSON.stringify(NutQuery))
+    }
 }
 //get Recipe Functionality
 var getRecipe = function () {
     // This will be the API call and the function
     var recQuery = recVal.value;
-
-
+   
+    
     var apiRecUrl = "https://api.spoonacular.com/recipes/findByIngredients?ingredients=" + recQuery + "&apiKey=864baeb4ba3d40d7812ccefee0b6d23c&number=6";
 
     fetch(apiRecUrl).then(function (response) {
@@ -36,7 +54,6 @@ var getRecipe = function () {
             recDisplay.innerHTML = '';
 
             for (var i = 0; i < data.length; i++) {
-
 
                 //image container
                 var recImgURL = data[i].image;
@@ -52,30 +69,16 @@ var getRecipe = function () {
                 recTile.textContent = name;
 
                 recTile.appendChild(img);
-
-
                 recDisplay.appendChild(recTile);
-
-
             }
-
-
-
-
-
-
-            // for (var i = 0; i < data.length; i++){
-            //     var name = data[i].title;
-            //     recName.textContent = name;
-            //     recName.appendChild(name);
-            //     // console.log(data[i].title);
-            //     // console.log(data[i].missedIngredients[0].image);
-            // }
 
         })
     })
 
 }
+ var writeLocal = function(){
+    localStorage.setItem
+ }
 
 
 ingBtn.addEventListener("click", getNutrition)
