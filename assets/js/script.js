@@ -33,20 +33,22 @@ var getRecipe = function () {
         response.json().then(function (data) {
           console.log(data);
           
-      for(var i = 0; i<data.length;i++){
+      for(var i = 0; i <data.length; i++){
         
+        recTile.textContent = '';
        //image container
         var recImgURL = data[i].image;
-        var name = data[i].title;
         var img = document.createElement("img");
         img.className = "card-header fg-white"
         img.style.width = "150px"
         img.setAttribute("src", recImgURL)
-        
+
         //div for the card
+        var name = data[i].title;
         var recTile = document.createElement('div');
         recTile.className = "card card-img";
         recTile.textContent = name;
+        
         recTile.appendChild(img);
         
         
