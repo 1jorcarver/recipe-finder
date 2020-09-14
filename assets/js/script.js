@@ -10,7 +10,7 @@ var getNutrition = function () {
     var nutritionQuery = nutVal.value;
     console.log(nutritionQuery)
     
-    var apiNutUrl = "https://api.edamam.com/api/nutrition-details?app_id=d80bea91&app_key=d0bd7a7983c9186ffd5e98b3cc987be7&title="+nutritionQuery+"&ingr=" + nutritionQuery ;
+    var apiNutUrl = "https://api.edamam.com/api/nutrition-data?app_id=d80bea91&app_key=d0bd7a7983c9186ffd5e98b3cc987be7&ingr=" + nutritionQuery ;
 
     // make a get request to url
     fetch(apiNutUrl).then(function (response) {
@@ -35,7 +35,11 @@ var getRecipe = function () {
           
       for(var i = 0; i <data.length; i++){
         
+
         recDisplay.innerHTML = '';
+
+       
+
        //image container
         var recImgURL = data[i].image;
         var img = document.createElement("img");
@@ -53,7 +57,10 @@ var getRecipe = function () {
         
         
         recDisplay.appendChild(recTile);
+        
+
         }
+        
             
             
 
@@ -77,6 +84,6 @@ ingBtn.addEventListener("click", getNutrition)
 recBtn.addEventListener("click", getRecipe)
 
 
-//test
+//test 2
 
 
