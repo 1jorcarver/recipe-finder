@@ -35,10 +35,7 @@ var getRecipe = function () {
           
       for(var i = 0; i <data.length; i++){
         
-
         recDisplay.innerHTML = '';
-
-       
 
        //image container
         var recImgURL = data[i].image;
