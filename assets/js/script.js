@@ -4,38 +4,40 @@ var recVal = document.getElementById("recipe-val");
 var nutVal = document.getElementById("nutrition-val");
 var recName = document.getElementsByClassName("rec-name");
 var recDisplay = document.getElementById("rec-display");
-var nutCol =  document.getElementById("nutrition-col");
+var nutCol = document.getElementById("nutrition-col");
 var nutTxtDisplay = document.getElementById("displayNut");
+// var histDisplay = document.getElementByClassName("history-area");
+var recArray = [];
+var historyArea = document.getElementById("history-area");
 
 
 //get Nutrition Function
 var getNutrition = function () {
 
     var nutritionQuery = nutVal.value;
-    console.log(nutritionQuery)
+    
 
     var apiNutUrl = "https://api.edamam.com/api/nutrition-data?app_id=d80bea91&app_key=d0bd7a7983c9186ffd5e98b3cc987be7&ingr=" + nutritionQuery;
 
     // make a get request to url
     fetch(apiNutUrl).then(function (response) {
+
         response.json().then(function (data) {
             // this will show the API data to navigate
-            console.log(data)
-            console.log(data.calories);
-
+            
             //display the search item
             var NutQuery = nutVal.value;
             nutTxtDisplay.textContent = NutQuery;
 
             //Display the Calories of the search input
-            var calCount =  data.calories;
+            var calCount = data.calories;
             var cal = document.createElement("h4");
             cal.textContent = calCount;
 
             nutCol.appendChild(cal);
         })
     })
-    var localStorageNut =  function() {
+    var localStorageNut = function () {
         localStorage.setItem(JSON.stringify(NutQuery))
     }
 }
@@ -43,13 +45,13 @@ var getNutrition = function () {
 var getRecipe = function () {
     // This will be the API call and the function
     var recQuery = recVal.value;
-   
+    recArray.push(recQuery)
     
-    var apiRecUrl = "https://api.spoonacular.com/recipes/findByIngredients?ingredients=" + recQuery + "&apiKey=864baeb4ba3d40d7812ccefee0b6d23c&number=6";
+    var apiRecUrl = "https://api.spoonacular.com/recipes/findByIngredients?ingredients=" + recQuery + "&apiKey=9811871b69254065b5ce62c69e6f0531&number=6";
 
     fetch(apiRecUrl).then(function (response) {
         response.json().then(function (data) {
-            console.log(data);
+            
 
             recDisplay.innerHTML = '';
 
@@ -71,20 +73,40 @@ var getRecipe = function () {
                 recTile.appendChild(img);
                 recDisplay.appendChild(recTile);
             }
-
+            recipeSearch();
+            createHistory();
         })
     })
 
 }
- var writeLocal = function(){
-    localStorage.setItem
- }
+
+// store recipe search
+var recipeSearch = function () {
+    localStorage.setItem("user-input", JSON.stringify(recArray));
+    
+    
+
+}
+
+var createHistory = function () {
+    
+    //creating the btn
+    var histBtn = document.createElement('button');
+    //giving btn text
+    histBtn.textContent = recVal.value; 
+    //giving btn value
+    histBtn.value = recVal.value;
+
+
+    histBtn.addEventListener("click",getRecipe);
+    historyArea.prepend(histBtn);
+   
+    
+    
+};
 
 
 ingBtn.addEventListener("click", getNutrition)
 recBtn.addEventListener("click", getRecipe)
 
-
 //test 3
-
-
