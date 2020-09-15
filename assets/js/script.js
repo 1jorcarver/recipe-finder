@@ -9,15 +9,16 @@ var nutTxtDisplay = document.getElementById("displayNut");
 // var histDisplay = document.getElementByClassName("history-area");
 var recArray = [];
 var historyArea = document.getElementById("history-area");
+var calNumber = document.getElementById("cal-number");
 
 
 //get Nutrition Function
 var getNutrition = function () {
 
-    var nutritionQuery = nutVal.value;
+    var recQuery = recVal.value;
     
 
-    var apiNutUrl = "https://api.edamam.com/api/nutrition-data?app_id=d80bea91&app_key=d0bd7a7983c9186ffd5e98b3cc987be7&ingr=" + nutritionQuery;
+    var apiNutUrl = "https://api.edamam.com/api/nutrition-data?app_id=d80bea91&app_key=d0bd7a7983c9186ffd5e98b3cc987be7&ingr=" + recQuery;
 
     // make a get request to url
     fetch(apiNutUrl).then(function (response) {
@@ -26,15 +27,14 @@ var getNutrition = function () {
             // this will show the API data to navigate
             
             //display the search item
-            var NutQuery = nutVal.value;
-            nutTxtDisplay.textContent = NutQuery;
+            var recQuery = recVal.value;
+            nutTxtDisplay.textContent = recQuery;
 
             //Display the Calories of the search input
             var calCount = data.calories;
-            var cal = document.createElement("h4");
-            cal.textContent = calCount;
+            calNumber.textContent = calCount;
 
-            nutCol.appendChild(cal);
+            nutCol.appendChild(calNumber);
         })
     })
     var localStorageNut = function () {
@@ -106,7 +106,7 @@ var createHistory = function () {
 };
 
 
-ingBtn.addEventListener("click", getNutrition)
+recBtn.addEventListener("click", getNutrition)
 recBtn.addEventListener("click", getRecipe)
 
-//test 3
+//test 4
