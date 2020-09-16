@@ -18,7 +18,7 @@ var searchHistory = JSON.parse(localStorage.getItem("user-input")) || [];
 //get Nutrition Function
 var getNutrition = function () {
 
-    var recQuery = recVal.value;
+    var recQuery = this.value || recVal.value;
     
 
     var apiNutUrl = "https://api.edamam.com/api/nutrition-data?app_id=d80bea91&app_key=d0bd7a7983c9186ffd5e98b3cc987be7&ingr=" + recQuery;
@@ -115,6 +115,7 @@ var createHistory = function () {
         
         historyArea.prepend(histBtn);
         histBtn.addEventListener("click", getRecipe);
+        histBtn.addEventListener("click", getNutrition);
     });
 
     //creating the btn
@@ -126,4 +127,4 @@ createHistory();
 recBtn.addEventListener("click", getNutrition)
 recBtn.addEventListener("click", getRecipe)
 
-//test 4
+//test 5
