@@ -11,11 +11,14 @@ var recArray = [];
 var historyArea = document.getElementById("history-area");
 var calNumber = document.getElementById("cal-number");
 
+var searchHistory = JSON.parse(localStorage.getItem("user-input")) || [];
+
+// console.log(searchHistory);
 
 //get Nutrition Function
 var getNutrition = function (){
 
-    var recQuery = recVal.value;
+    var recQuery = this.value || recVal.value;
     
 
     var apiNutUrl = "https://api.edamam.com/api/nutrition-data?app_id=d80bea91&app_key=d0bd7a7983c9186ffd5e98b3cc987be7&ingr=" + recQuery;
@@ -42,9 +45,13 @@ var getNutrition = function (){
     }
 }
 //get Recipe Functionality
-var getRecipe = function (){
+
+var getRecipe = function () {
+    console.log(this);
+    var recQuery = this.value || recVal.value;
+
     // This will be the API call and the function
-    var recQuery = recVal.value;
+    // var recQuery = recVal.value;
     recArray.push(recQuery)
     
     var apiRecUrl = "https://api.spoonacular.com/recipes/findByIngredients?ingredients=" + recQuery + "&apiKey=9811871b69254065b5ce62c69e6f0531&number=6";
@@ -74,6 +81,16 @@ var getRecipe = function (){
                 recDisplay.appendChild(recTile);
             }
             recipeSearch();
+            // console.log(searchHistory);
+            console.log(recVal.value.length)
+            if (recVal.value.length > 0) {
+                searchHistory.push(recVal.value);
+                localStorage.setItem("user-input", JSON.stringify(searchHistory));
+            }
+           
+            recVal.value = '';
+           
+            // console.log(searchHistory);
             createHistory();
         })
     })
@@ -82,31 +99,34 @@ var getRecipe = function (){
 
 // store recipe search
 var recipeSearch = function () {
-    localStorage.setItem("user-input", JSON.stringify(recArray));
+   // localStorage.setItem("user-input", JSON.stringify(recArray));
     
-    
-
 }
 
 var createHistory = function () {
+    document.getElementById('history-area').innerHTML = '';
+
+    searchHistory.forEach(search => {
+        var histBtn = document.createElement('button');
+        //giving btn text
+        histBtn.textContent = search; 
+        //giving btn value
+        histBtn.value = search;
     
+    
+        
+        historyArea.prepend(histBtn);
+        histBtn.addEventListener("click", getRecipe);
+        histBtn.addEventListener("click", getNutrition);
+    });
+
     //creating the btn
-    var histBtn = document.createElement('button');
-    //giving btn text
-    histBtn.textContent = recVal.value; 
-    //giving btn value
-    histBtn.value = recVal.value;
-
-
-    histBtn.addEventListener("click",getRecipe);
-    historyArea.prepend(histBtn);
+    
    
-    
-    
 };
 
-
+createHistory();
 recBtn.addEventListener("click", getNutrition)
 recBtn.addEventListener("click", getRecipe)
 
-//test 4
+//test 5
