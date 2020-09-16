@@ -12,7 +12,7 @@ h1 {
 button:hover {
     background-color:  #556B2F;
     color:white;
-    width: 15%
+    width: 10%
 }
 #history-display {
     margin-top: 40px;
@@ -36,12 +36,19 @@ span {
 }
 #cal-number {
     text-align: center;
-    margin-left: 80px;
+    /* margin-left: 100px; */
     font-weight: bolder;
     font-size: 40px;
 }
 img {
-    margin-left: 50px;
+    margin-left: 80px;
+}
+.history-btn {
+    padding: 5px;
+    background-color: #3C4043;
+    color: white;
+    border: none;
+    margin: 5px;
 }
 
 #rec-display{
@@ -59,6 +66,11 @@ img {
 h2 {
     text-align: center;
 }
+#nutrition-col {
+    text-align: center;
+    border-right: solid gray 1px;
+    border-left: solid gray 1px
+}
 /* 
 .cell-4 {
     /* background-color:#F0DECF; */
@@ -68,6 +80,7 @@ h2 {
 
 body {
     background-color: #FFE4C4;
+    font-family: 'Lato', sans-serif;
 }   
 
 header {
