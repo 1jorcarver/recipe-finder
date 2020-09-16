@@ -13,7 +13,7 @@ var calNumber = document.getElementById("cal-number");
 
 
 //get Nutrition Function
-var getNutrition = function () {
+var getNutrition = function (){
 
     var recQuery = recVal.value;
     
@@ -42,7 +42,7 @@ var getNutrition = function () {
     }
 }
 //get Recipe Functionality
-var getRecipe = function () {
+var getRecipe = function (){
     // This will be the API call and the function
     var recQuery = recVal.value;
     recArray.push(recQuery)
