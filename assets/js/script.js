@@ -10,16 +10,17 @@ var nutTxtDisplay = document.getElementById("displayNut");
 var recArray = [];
 var historyArea = document.getElementById("history-area");
 var calNumber = document.getElementById("cal-number");
+var clearBtn = document.getElementById("clearBtn");
 
 var searchHistory = JSON.parse(localStorage.getItem("user-input")) || [];
 
 // console.log(searchHistory);
 
 //get Nutrition Function
-var getNutrition = function (){
+var getNutrition = function () {
 
     var recQuery = this.value || recVal.value;
-    
+
 
     var apiNutUrl = "https://api.edamam.com/api/nutrition-data?app_id=d80bea91&app_key=d0bd7a7983c9186ffd5e98b3cc987be7&ingr=" + recQuery;
 
@@ -28,7 +29,7 @@ var getNutrition = function (){
 
         response.json().then(function (data) {
             // this will show the API data to navigate
-            
+
             //display the search item
             var recQuery = recVal.value;
             nutTxtDisplay.textContent = recQuery;
@@ -53,12 +54,12 @@ var getRecipe = function () {
     // This will be the API call and the function
     // var recQuery = recVal.value;
     recArray.push(recQuery)
-    
+
     var apiRecUrl = "https://api.spoonacular.com/recipes/findByIngredients?ingredients=" + recQuery + "&apiKey=9811871b69254065b5ce62c69e6f0531&number=6";
 
     fetch(apiRecUrl).then(function (response) {
         response.json().then(function (data) {
-            
+
 
             recDisplay.innerHTML = '';
 
@@ -87,9 +88,9 @@ var getRecipe = function () {
                 searchHistory.push(recVal.value);
                 localStorage.setItem("user-input", JSON.stringify(searchHistory));
             }
-           
+
             recVal.value = '';
-           
+
             // console.log(searchHistory);
             createHistory();
         })
@@ -99,8 +100,8 @@ var getRecipe = function () {
 
 // store recipe search
 var recipeSearch = function () {
-   // localStorage.setItem("user-input", JSON.stringify(recArray));
-    
+    // localStorage.setItem("user-input", JSON.stringify(recArray));
+
 }
 
 var createHistory = function () {
@@ -110,24 +111,32 @@ var createHistory = function () {
         var histBtn = document.createElement('button');
         //giving btn text
         histBtn.className = "history-btn"
-        histBtn.textContent = search; 
+        histBtn.textContent = search;
         //giving btn value
         histBtn.value = search;
-    
-    
-        
+
+
+
         historyArea.prepend(histBtn);
         histBtn.addEventListener("click", getRecipe);
         histBtn.addEventListener("click", getNutrition);
     });
 
     //creating the btn
-    
-   
+
+
 };
+
+var clearHistory = function () {
+    document.getElementById('history-area').innerHTML = '';
+    searchHistory = [];
+    localStorage.clear();
+};
+
 
 createHistory();
 recBtn.addEventListener("click", getNutrition)
 recBtn.addEventListener("click", getRecipe)
+clearBtn.addEventListener("click", clearHistory)
 
 //test 5
