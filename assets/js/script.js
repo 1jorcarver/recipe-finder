@@ -109,6 +109,7 @@ var createHistory = function () {
     searchHistory.forEach(search => {
         var histBtn = document.createElement('button');
         //giving btn text
+        histBtn.className = "history-btn"
         histBtn.textContent = search; 
         //giving btn value
         histBtn.value = search;
