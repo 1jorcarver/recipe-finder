@@ -16,7 +16,7 @@ var searchHistory = JSON.parse(localStorage.getItem("user-input")) || [];
 // console.log(searchHistory);
 
 //get Nutrition Function
-var getNutrition = function () {
+var getNutrition = function (){
 
     var recQuery = this.value || recVal.value;
     
@@ -45,9 +45,11 @@ var getNutrition = function () {
     }
 }
 //get Recipe Functionality
+
 var getRecipe = function () {
     console.log(this);
     var recQuery = this.value || recVal.value;
+
     // This will be the API call and the function
     // var recQuery = recVal.value;
     recArray.push(recQuery)
