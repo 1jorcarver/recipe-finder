@@ -6,7 +6,6 @@ var recName = document.getElementsByClassName("rec-name");
 var recDisplay = document.getElementById("rec-display");
 var nutCol = document.getElementById("nutrition-col");
 var nutTxtDisplay = document.getElementById("displayNut");
-var recArray = [];
 var historyArea = document.getElementById("history-area");
 var calNumber = document.getElementById("cal-number");
 var clearBtn = document.getElementById("clearBtn");
@@ -45,9 +44,6 @@ var getRecipe = function () {
     var recQuery = this.value || recVal.value;
 
     // This will be the API call and the function
-    
-    recArray.push(recQuery);
-
     var apiRecUrl = "https://api.spoonacular.com/recipes/findByIngredients?ingredients=" + recQuery + "&apiKey=9811871b69254065b5ce62c69e6f0531&number=6";
 
     fetch(apiRecUrl).then(function (response) {

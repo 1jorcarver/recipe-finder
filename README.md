@@ -7,10 +7,10 @@ This application allows the user to type an ingredient and receive the calorie a
 ## Built With
 - HTML
 - CSS 
-- Javascript
+- JavaScript
 
 ### API's Used
-- Spoontacular
+- Spoonacular
 - Edamam Nutrition Info
 
 ## Contributors
