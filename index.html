@@ -10,12 +10,13 @@
     <link rel="stylesheet" href="./assets/css/style.css">
     <!-- Google Font - Lato -->
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap" rel="stylesheet"> 
+   
     <title>Recipe Finder</title>
 </head>
 
 <body class="grid">
     <header class="row text-center text-left-md">
-        <h1 class="cell-md-12">Recipe Finder</h1>
+        <h1 class="cell-md-12"><i class="fab fa-pagelines"></i> Recipe Finder</h1>
     </header>
     <div class="container">
     <main class="row">
@@ -25,20 +26,16 @@
                 <h2>Recipe Search</h2>
                 <div class="form-fields">
                     <input type="text" id="recipe-val" placeholder="Type quantity & ingredient Ex: 1 kiwi">
-                    <button id="recBtn"><i class="mif-search mif-lg"></i></button>
+                    <button class="button success square outline" id="recBtn"><i class="mif-search mif-lg"></i></button>
                 </div>
-                <!-- <h2>Calorie Counter</h2> -->
-                <!-- <div class="form-fields">
-                    <input type="text" id="nutrition-val" placeholder="Ex: 1 apple">
-                    <button id="ingBtn"><i class="mif-search mif-lg"></i></button>
-                </div> -->
                 <!-- History Section -->
                 <div class="" id="history-display">
                     <p class="history-text">Recent History</p>
                     <div id="history-area"></div>
                 </div>
+                <!-- Clear History Button -->
                 <div>
-                    <button id="clearBtn">Clear History</button>
+                    <button class="button success outline rounded" id="clearBtn">Clear History</button>
                 </div>
             </div>
         </section>
@@ -62,6 +59,8 @@
 </div>
 
     <!-- Script Tags -->
+    <!-- Font Awesome -->
+    <script src="https://kit.fontawesome.com/336898dd2f.js" crossorigin="anonymous"></script>
     <script src="https://cdn.metroui.org.ua/v4.3.2/js/metro.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="assets/js/script.js"></script>

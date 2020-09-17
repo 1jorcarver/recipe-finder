@@ -1,19 +1,21 @@
 input {
     width: 75%;
-
 }
+
 h1 {
     margin-left: 40px;
 }
+
 .form-fields {
     display: flex;
     margin: 15px;
 }
+
 button:hover {
     background-color:  #556B2F;
     color:white;
-    width: 10%
 }
+
 #history-display {
     margin-top: 40px;
 }
@@ -21,34 +23,49 @@ button:hover {
 .history-text {
     color: #827E7A; 
     text-align: center; 
+    font-size: 22px;
+    padding: 15px;
 }
+
+#clearBtn {
+    margin: 30px 0 0 0 ;
+}
+
+#search-col {
+    text-align: center;
+}
+
 h4{
     text-align: center;
     font-size: small;
-
 }
+
 h2 {
     text-decoration: underline;
+    text-align: center;
 }
+
 span {
     text-align: center;
     font-size: 15px;
 }
+
 #cal-number {
     text-align: center;
-    /* margin-left: 100px; */
     font-weight: bolder;
     font-size: 40px;
 }
+
 img {
     margin-left: 80px;
 }
+
 .history-btn {
-    padding: 5px;
-    background-color: #3C4043;
     color: white;
-    border: none;
     margin: 5px;
+}
+.fab {
+    margin-left: 50px;
 }
 
 #rec-display{
@@ -60,23 +77,17 @@ img {
     flex-direction: row;
     margin: 20px;
 }
+
 .card {
     flex: 1;
 }
-h2 {
-    text-align: center;
-}
+
 #nutrition-col {
     text-align: center;
     border-right: solid gray 1px;
-    border-left: solid gray 1px
+    border-left: solid gray 1px;
+    margin-top: 5px;
 }
-/* 
-.cell-4 {
-    /* background-color:#F0DECF; */
-    /* height: 200px; */
-    /* border: 2px solid white; */
-/* } */
 
 body {
     background-color: #FFE4C4;
@@ -87,5 +98,3 @@ header {
     background-color: #556B2F;
     color: white;
 }
-
-/* This is to just commit */
